@@ -689,6 +689,8 @@ class Client(object):
                                              % (line, str(e)))
 
                     buf, value = _readvalue(self.sock, buf, int(size))
+                    if key not in checked_keys:
+                        continue
                     key = checked_keys[key]
 
                     if self.deserializer:
