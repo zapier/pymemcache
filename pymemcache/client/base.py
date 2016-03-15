@@ -676,7 +676,7 @@ class Client(object):
             while True:
                 buf, line = _readline(self.sock, buf)
                 self._raise_errors(line, name)
-                if line == b'END':
+                if line.strip() == b'END':
                     return result
                 elif line.startswith(b'VALUE'):
                     if expect_cas:
